@@ -1,13 +1,15 @@
 $(function() {
     // place your code
      $(".my-rating").starRating({
-        starSize: 25,
+        starSize: 40,
         strokeWidth: 9,
-        strokeColor: 'green',
         initialRating: 2.5,
+        ratedColor:'#8b3247',
+        hoverColor:'#8b3247',
+        emptyColor: 'lightgrey',
         starGradient: {
-            start: '#93BFE2',
-            end: '#228b22'
+            start: '#d48799',
+            end:'#8b3247'
         },
         callback: function(currentRating, $el){
         // make a server call here
