@@ -1,4 +1,17 @@
 $(function() {
+
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyB5nHus5t0LzPCfumntUVBvY0gqb0UuUPI",
+      authDomain: "apw-unbxd.firebaseapp.com",
+      databaseURL: "https://apw-unbxd.firebaseio.com/",
+      projectId: "apw-unbxd"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    // Get a reference to the database service
+    var database = firebase.database();
+
     // place your code
      $(".my-rating").starRating({
         starSize: 40,
@@ -12,7 +25,12 @@ $(function() {
             end:'#8b3247'
         },
         callback: function(currentRating, $el){
-        // make a server call here
+            id = $el.attr("id")
+
+            database.ref().child(id).push({
+                "rating":currentRating
+            })
+
         }
     });
 });
